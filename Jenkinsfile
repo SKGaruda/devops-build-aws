@@ -19,6 +19,8 @@ pipeline {
         stage('Build Docker Image') {
             steps {
                 sh '''
+                    set -e
+
                     echo "Building Docker image..."
 
                     docker build \
@@ -209,7 +211,7 @@ pipeline {
                         curl -f http://localhost
 
                         echo "Application deployed successfully."
-                    }
+                    """
                 }
             }
         }

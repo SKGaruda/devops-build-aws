@@ -72,7 +72,7 @@ pipeline {
 
                 withCredentials([
                     usernamePassword(
-                        credentialsId: 'Dockerhub1-credentials',
+                        credentialsId: 'DockerHub1-credentials',
                         usernameVariable: 'DOCKER_USER',
                         passwordVariable: 'DOCKER_PASSWORD'
                     )
@@ -124,7 +124,7 @@ pipeline {
 
                 withCredentials([
                     usernamePassword(
-                        credentialsId: 'Dockerhub1-credentials',
+                        credentialsId: 'DockerHub1-credentials',
                         usernameVariable: 'DOCKER_USER',
                         passwordVariable: 'DOCKER_PASSWORD'
                     )
@@ -227,10 +227,5 @@ pipeline {
             echo 'Pipeline failed.'
         }
 
-        always {
-            sh '''
-                docker rm -f test-container 2>/dev/null || true
-            '''
-        }
     }
 }
